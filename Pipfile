@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "~=2.26"
+beautifulsoup4 = "~=4.10"
+
+[dev-packages]
+flake8 = "~=4.0"
+isort = "~=5.10"
+commitizen = "~=2.20"
+
+[requires]
+python_version = "3.7"
