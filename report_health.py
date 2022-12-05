@@ -208,9 +208,34 @@ class HealthReportService:
                 logger.warning(log_message)
 
 
+def examine_environment_var():
+    environ_vars = [
+        'EMPLOYEE_ID',
+        'COMMUTE_WAY',
+        'REPORT_FORM_URL',
+        'REPORT_PAGE_URL',
+        'LOGIN_FORM_URL',
+        'LOGIN_PAGE_URL',
+        'DELAY_TIME_RANGE',
+        'REFERER_SITE_PATH',
+        'USER_AGENT_PATH',
+    ]
+
+    error_message_list = []
+    for var_name in environ_vars:
+        var_value = os.environ.get(var_name, None)
+        if var_value is None or len(var_value) == 0:
+            error_message_list.append(f"Please define {var_name} variable in .env file.")
+
+    error_message = "\n".join(error_message_list)
+    if error_message:
+        sys.exit(error_message)
+
+
 if __name__ == '__main__':
     start_time = datetime.datetime.now()
 
+    examine_environment_var()
     HealthReportService()
 
     end_time = datetime.datetime.now()
