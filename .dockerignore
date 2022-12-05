@@ -1,0 +1,8 @@
+# Environment file
+.*
+.coveragerc
+.env
+.pylintrc
+.envs/*
+.db/*
+.vscode/*
